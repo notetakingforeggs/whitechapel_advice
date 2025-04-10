@@ -11,6 +11,7 @@ public class CourtCase {
 
     @Id
     @GeneratedValue
+    @Column(columnDefinition = "uuid DEFAULT gen_random_uuid()", nullable = false, updatable = false)
     private UUID id;
     // maybe add @Index here?
     @Column(nullable = false)

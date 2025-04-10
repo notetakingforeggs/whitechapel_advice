@@ -10,7 +10,7 @@ VALUES
 (7,'South East');
 
 -- insert all cities?
-INSERT INTO city (id, city_name, region_id) VALUES
+INSERT INTO court (id, city, region_id) VALUES
 (1, 'Aberystwyth', 4),
 (2, 'Aldershot & Farnham', 7),
 (3, 'Barnet', 5),
