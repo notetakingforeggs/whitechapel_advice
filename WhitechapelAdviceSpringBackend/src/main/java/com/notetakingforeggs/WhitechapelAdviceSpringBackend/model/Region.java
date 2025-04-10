@@ -14,6 +14,8 @@ public class Region {
     @GeneratedValue
     private UUID id;
 
+    private String regionName;
+
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
     private Set<Court> courts;
 

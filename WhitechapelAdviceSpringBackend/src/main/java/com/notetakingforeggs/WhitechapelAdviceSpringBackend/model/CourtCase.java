@@ -14,8 +14,8 @@ public class CourtCase {
     private UUID id;
     // maybe add @Index here?
     @Column(nullable = false)
-    private long startTimeEpoch;
 
+    private long startTimeEpoch;
     private String duration;
     private String caseId;
     private String claimant;
