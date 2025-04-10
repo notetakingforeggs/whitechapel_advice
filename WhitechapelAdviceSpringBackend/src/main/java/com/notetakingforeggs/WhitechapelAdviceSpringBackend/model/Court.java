@@ -10,10 +10,9 @@ import java.util.UUID;
 @Entity
 public class Court {
     @Id
-    @GeneratedValue
-    private UUID id;
+    private long id;
 
-    private String name;
+//    private String name; // not sure about getting the names of different courts... worthwhile? idk
     private String city;
 
     @OneToMany(mappedBy = "court", cascade = CascadeType.ALL)
