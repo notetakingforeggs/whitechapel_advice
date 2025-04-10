@@ -11,8 +11,7 @@ import java.util.UUID;
 public class Region {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+    private long id;
 
     private String regionName;
 
