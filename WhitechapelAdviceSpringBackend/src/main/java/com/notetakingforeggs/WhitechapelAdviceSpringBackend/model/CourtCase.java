@@ -18,7 +18,10 @@ public class CourtCase {
 
     private long startTimeEpoch;
     private String duration;
+
+    @Column(unique = true)
     private String caseId;
+
     private String claimant;
     private String defendant;
     private String hearingType;
