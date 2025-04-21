@@ -12,7 +12,7 @@ VALUES
 -- insert court data
 INSERT INTO court (id, city, region_id) VALUES
 (1, 'Aberystwyth', 4),
-(2, 'Aldershot & Farnham', 7),
+(2, 'Aldershot', 7),
 (3, 'Barnet', 5),
 (4, 'Barnsley', 2),
 (5, 'Barnstaple', 6),

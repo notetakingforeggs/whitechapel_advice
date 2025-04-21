@@ -22,8 +22,12 @@ public class CourtCase {
     @Column(unique = true)
     private String caseId;
 
+    private String caseDetails;
+
     private String claimant;
     private String defendant;
+    private Boolean isMinor;
+
     private String hearingType;
     private String hearingChannel;
 
