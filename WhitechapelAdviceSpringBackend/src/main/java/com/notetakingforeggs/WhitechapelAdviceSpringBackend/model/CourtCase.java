@@ -17,7 +17,7 @@ public class CourtCase {
     @Column(nullable = false)
 
     private long startTimeEpoch;
-    private String duration;
+    private Long duration;
 
     @Column(unique = true)
     private String caseId;

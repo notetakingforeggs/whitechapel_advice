@@ -89,7 +89,7 @@ INSERT INTO court (id, city, region_id) VALUES
 (76, 'Middlesbrough', 2),
 (77, 'Milton Keynes', 7),
 (78, 'Mold', 4),
-(79, 'Newcastle Upon Tyne', 2),
+(79, 'Newcastle', 2),
 (80, 'Newport', 4),
 (81, 'Newport (IOW)', 7),
 (82, 'Northampton', 3),
