@@ -11,6 +11,17 @@ services:
       - "65432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+  scraper:
+    build:
+      context: ./whitechapel_advice_scraper
+    env_file:
+      - ./whitechapel_advice_scraper/.env
+    depends_on:
+      - postgres
+    working_dir: /app
+    volumes:
+      - ./whitechapel_advice_scraper:/app
+
 
 volumes:
   pgdata:
