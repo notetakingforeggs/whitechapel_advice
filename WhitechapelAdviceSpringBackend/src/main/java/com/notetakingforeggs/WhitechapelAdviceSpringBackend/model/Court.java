@@ -1,5 +1,7 @@
 package com.notetakingforeggs.WhitechapelAdviceSpringBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,10 +16,11 @@ public class Court {
 
 //    private String name; // not sure about getting the names of different courts... worthwhile? idk
     private String city;
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "court", cascade = CascadeType.ALL)
     private Set<CourtCase> courtCases;
 
+    @JsonBackReference
     @ManyToOne(optional = false)
     @JoinColumn(name = "region_id")
     private Region region;

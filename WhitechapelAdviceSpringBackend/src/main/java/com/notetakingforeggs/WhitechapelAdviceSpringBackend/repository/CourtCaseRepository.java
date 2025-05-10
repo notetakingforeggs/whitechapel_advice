@@ -10,7 +10,8 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface CourtCaseRepository extends JpaRepository <CourtCase, Long> {
-List<CourtCase> findByRegion(long regionId);
+List<CourtCase> findByCourt_Region_Id(long regionId);
+List<CourtCase> findByCourt_Id(long courtId);
 List<CourtCase> findByClaimantContainingIgnoreCase(String claimant);
 List<CourtCase> findByDefendantContainingIgnoreCase(String defendant);
 List<CourtCase> findByHearingTypeContainingIgnoreCase(String hearingType);

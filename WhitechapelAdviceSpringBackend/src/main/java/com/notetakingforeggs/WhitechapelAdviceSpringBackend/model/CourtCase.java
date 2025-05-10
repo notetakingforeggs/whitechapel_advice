@@ -1,5 +1,7 @@
 package com.notetakingforeggs.WhitechapelAdviceSpringBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -31,6 +33,7 @@ public class CourtCase {
     private String hearingType;
     private String hearingChannel;
 
+    @JsonBackReference
     @ManyToOne(optional = false)
     @JoinColumn(name = "court_id")
     private Court court;

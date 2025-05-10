@@ -1,5 +1,6 @@
 package com.notetakingforeggs.WhitechapelAdviceSpringBackend.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,7 +15,7 @@ public class Region {
     private long id;
 
     private String regionName;
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
     private Set<Court> courts;
 
