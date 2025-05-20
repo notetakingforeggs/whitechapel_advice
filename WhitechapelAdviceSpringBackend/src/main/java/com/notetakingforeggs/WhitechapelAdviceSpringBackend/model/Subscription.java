@@ -10,11 +10,11 @@ import java.util.List;
 public class Subscription {
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
-    String type;
+    private String type;
 
-    List<String> alertTerm;
+    private List<String> alertTerm;
 
-    long lastNotifiedTimestamp;
+    private Long lastNotifiedTimestamp;
 }

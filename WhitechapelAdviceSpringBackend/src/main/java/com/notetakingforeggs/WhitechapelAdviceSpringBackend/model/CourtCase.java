@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.UUID;
 
@@ -23,6 +24,9 @@ public class CourtCase {
 
     @Column(unique = true)
     private String caseId;
+
+    @CreationTimestamp
+    private Long createdAt;
 
     private String caseDetails;
 
