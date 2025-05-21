@@ -28,15 +28,17 @@ public class TelegramBot extends TelegramLongPollingBot {
             String chatId = update.getMessage().getChatId().toString();
             String messageText = update.getMessage().getText().trim().toLowerCase();
 
-            if(messageText.trim().startsWith("claimaint:")){
+            if(messageText.trim().startsWith("/claimaint:")){
 
                 sendMessage(chatId, "you said claimant");
-            } else if (messageText.trim().startsWith("defendant:")) {
+            } else if (messageText.trim().startsWith("/defendant:")) {
                 sendMessage(chatId, "you said defendant");
-            }else{
+            } else if (messageText.trim().startsWith("/view")) {
+                sendMessage(chatId, "listing all your subscriptions:");
+            } else{
                 String helpText = """ 
                         Welcome to the advice service Telegram Bot!
-                        to sign up for alerts based on claimaint, type claimaint: followed by the name or names of the claimant you wish to be alerted for, eg "claimaint: joe blogs". To sign up for alerts based on names of defendants send a message like defendant:nameofdefendant.
+                        to sign up for alerts based on claimaint, type /claimaint: followed by the name or names of the claimant you wish to be alerted for, eg "claimaint: joe blogs". To sign up for alerts based on names of defendants send a message like defendant:nameofdefendant.
                         """;
                 sendMessage(chatId, helpText);
             }
