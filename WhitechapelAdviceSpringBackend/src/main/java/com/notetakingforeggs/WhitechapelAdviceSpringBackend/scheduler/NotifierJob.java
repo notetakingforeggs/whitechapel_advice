@@ -23,7 +23,8 @@ public class NotifierJob {
     private final SubscriptionRepository subs;
     private final TelegramBot bot;
 
-    @Scheduled(cron =  "0 30 7 * * *")
+    @Scheduled(cron =  "0 3 * * * *")
+//    @Scheduled(cron =  "0 30 7 * * *")
     public void run(){
 
         // iterating thru all subscriptions

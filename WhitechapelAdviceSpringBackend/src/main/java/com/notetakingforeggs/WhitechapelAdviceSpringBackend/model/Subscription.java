@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 @Data
 @Entity
@@ -15,8 +16,8 @@ public class Subscription {
 
     private Long chatId;
 
-    private List<String> alertTermsClaimant;
-    private List<String> alertTermsDefendant;
+    private List<String> alertTermsClaimant = new ArrayList<>();
+    private List<String> alertTermsDefendant = new ArrayList<>();
 
     private Long lastNotifiedTimestamp;
 }
