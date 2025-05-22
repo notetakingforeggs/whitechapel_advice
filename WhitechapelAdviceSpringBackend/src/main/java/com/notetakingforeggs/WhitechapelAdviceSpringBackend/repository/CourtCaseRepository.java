@@ -13,6 +13,8 @@ public interface CourtCaseRepository extends JpaRepository <CourtCase, Long> {
 List<CourtCase> findByCourt_Region_Id(long regionId);
 List<CourtCase> findByCourt_Id(long courtId);
 List<CourtCase> findByClaimantContainingIgnoreCase(String claimant);
+List<CourtCase> findByClaimantContainingIgnoreCaseAndCreatedAtAfter(String claimant, Long createdAt);
 List<CourtCase> findByDefendantContainingIgnoreCase(String defendant);
+List<CourtCase> findByDefendantContainingIgnoreCaseAndCreatedAtAfter(String defendant, Long createdAt);
 List<CourtCase> findByHearingTypeContainingIgnoreCase(String hearingType);
 }
