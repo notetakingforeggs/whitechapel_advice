@@ -70,22 +70,25 @@ public class NotifierJob {
         StringBuilder sb = new StringBuilder(" **New Hits for your subscribed search terms!!** \n\n");
 
         if(!claimaintHits.isEmpty()){
-            sb.append("Hits for your claimaint subscriptions: \n");
+            sb.append("Hits for your claimaint subscriptions: \n\n");
             claimaintHits.forEach(c ->
                             sb.append("• Start-time").append(epochSecondsToString(c.getStartTimeEpoch()))
                                     .append("\n")
-                                    .append("Details:").append(c.getCaseDetails())
+                                    .append("Details: ").append(c.getCaseDetails())
+                                    .append("\n\n")
                     );
         }if(!defendantHits.isEmpty()){
-            sb.append("Hits for your defendants subscriptions: \n");
+            sb.append("Hits for your defendants subscriptions: \n\n");
 
             for(CourtCase c : defendantHits){
                 System.out.println(epochSecondsToString(c.getStartTimeEpoch()));
 
-                sb.append("• Start-time").append(epochSecondsToString(c.getStartTimeEpoch()))
-                                    .append("\n")
-                                    .append("Details:").append(c.getCaseDetails());
+                sb.append("• Start-time ").append(epochSecondsToString(c.getStartTimeEpoch()))
+                                    .append("\n\n")
+                                    .append("Details:").append(c.getCaseDetails())
+                                    .append("\n\n");
             }
+// TODO this anon function not working. understand why?
 
 //            defendantHits.forEach(c ->
 //                            sb.append("• Start-time").append(epochSecondsToString(c.getStartTimeEpoch()))

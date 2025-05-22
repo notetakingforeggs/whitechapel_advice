@@ -34,7 +34,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             System.out.println(chatId);
             String messageText = update.getMessage().getText().trim().toLowerCase();
 
-            if (messageText.startsWith("/claimaint:")) {
+            if (messageText.startsWith("/claimant:")) {
                 // TODO ide suggested removing non capturing group, come back and replace maybe?
                 Pattern pattern = Pattern.compile("/claimaint: *(.+)", Pattern.CASE_INSENSITIVE);
                 Matcher matcher = pattern.matcher(messageText);
@@ -58,7 +58,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     sendMessage(chatId, "You have no active subscribed alerts");
                 } else {
                     StringBuilder sb = new StringBuilder("»»» listing all your subscriptions «««\n\n");
-                    sb.append("Claimaints\n");
+                    sb.append("Claimants\n");
                     sub.getAlertTermsClaimant().forEach(d -> sb.append("• " + d + "\n"));
                     sb.append("\nDefendants:\n");
                     sub.getAlertTermsDefendant().forEach(d -> sb.append("• " + d + "\n"));
