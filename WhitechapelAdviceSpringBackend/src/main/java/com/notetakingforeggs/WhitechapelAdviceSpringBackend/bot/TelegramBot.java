@@ -36,7 +36,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
             if (messageText.startsWith("/claimant:")) {
                 // TODO ide suggested removing non capturing group, come back and replace maybe?
-                Pattern pattern = Pattern.compile("/claimaint: *(.+)", Pattern.CASE_INSENSITIVE);
+                Pattern pattern = Pattern.compile("/claimant: *(.+)", Pattern.CASE_INSENSITIVE);
                 Matcher matcher = pattern.matcher(messageText);
                 if (matcher.find()) {
                     String claimaint = matcher.group(1);

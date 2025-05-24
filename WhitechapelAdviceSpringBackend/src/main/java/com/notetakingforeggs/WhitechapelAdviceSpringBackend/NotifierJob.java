@@ -67,16 +67,14 @@ public class NotifierJob {
     }
 
     public String format(List<CourtCase> claimaintHits, List<CourtCase> defendantHits){
-        StringBuilder sb = new StringBuilder(" **New Hits for your subscribed search terms!!** \n\n");
+        StringBuilder sb = new StringBuilder("»» New Hits for your subscribed alerts «« \n\n");
 
         if(!claimaintHits.isEmpty()){
             sb.append("Hits for your claimaint subscriptions: \n\n");
-            claimaintHits.forEach(c ->
-                            sb.append("• Start-time").append(epochSecondsToString(c.getStartTimeEpoch()))
-                                    .append("\n")
-                                    .append("Details: ").append(c.getCaseDetails())
-                                    .append("\n\n")
-                    );
+            claimaintHits.forEach(c -> sb.append("• Start-time: ").append(epochSecondsToString(c.getStartTimeEpoch()))
+                    .append("\n")
+                    .append("• Details: ").append(c.getCaseDetails())
+                    .append("\n\n"));
         }if(!defendantHits.isEmpty()){
             sb.append("Hits for your defendants subscriptions: \n\n");
 
