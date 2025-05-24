@@ -43,22 +43,22 @@ public class NotifierJob {
             // TODO need to create methods for finding cases created after a certain date and feed this in here
             for (String claimaint : s.getAlertTermsClaimant()){
                 System.out.println("Alert Terms for Claimaint");
-                System.out.println(claimaint);
-                System.out.println("last notifiedL" + s.getLastNotifiedTimestamp());
-
+                System.out.println("claimaint" + claimaint);
+                System.out.println("last notified" + s.getLastNotifiedTimestamp());
                 claimantHits.addAll(cases.findByClaimantContainingIgnoreCaseAndCreatedAtAfter(claimaint, s.getLastNotifiedTimestamp()));
             }for (String defendant : s.getAlertTermsDefendant()){
                 System.out.println("Alert terms for defendant");
                 System.out.println(defendant);
-                System.out.println("last notifiedL" + s.getLastNotifiedTimestamp());
+                System.out.println("last notified" + s.getLastNotifiedTimestamp());
                 defendantHits.addAll(cases.findByDefendantContainingIgnoreCaseAndCreatedAtAfter(defendant, s.getLastNotifiedTimestamp()));
             }
-            // do something with these? send them back to the user as a message, but also dont send all of the ones you already sent
 
             if(!claimantHits.isEmpty() || !defendantHits.isEmpty()){
                 System.out.println("not empty condish");
                 bot.sendMessage(s.getChatId().toString(),format(claimantHits, defendantHits));
-                s.setLastNotifiedTimestamp(LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+                s.setLastNotifiedTimestamp(Instant.now().getEpochSecond());
+                subs.save(s);
+                System.out.println("timestamp of last notification" + s.getLastNotifiedTimestamp());
             }else{
                 System.out.println("empteeeeeeeeeeeeeee");
                 //TODO i think the issue is in the last notified time or smth?
@@ -81,11 +81,11 @@ public class NotifierJob {
             sb.append("Hits for your defendants subscriptions: \n\n");
 
             for(CourtCase c : defendantHits){
-                System.out.println(epochSecondsToString(c.getStartTimeEpoch()));
+                System.out.println("Start time: " + epochSecondsToString(c.getStartTimeEpoch()));
 
-                sb.append("• Start-time ").append(epochSecondsToString(c.getStartTimeEpoch()))
-                                    .append("\n\n")
-                                    .append("Details:").append(c.getCaseDetails())
+                sb.append("• Start-time: ").append(epochSecondsToString(c.getStartTimeEpoch()))
+                                    .append("\n")
+                                    .append("• Details: ").append(c.getCaseDetails())
                                     .append("\n\n");
             }
 // TODO this anon function not working. understand why?

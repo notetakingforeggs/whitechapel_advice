@@ -63,4 +63,7 @@ public class SubscriptionService {
     public void flush(){
         repository.flush();
     }
+    public void save(Subscription subscription){
+        repository.save(subscription);
+    }
 }
