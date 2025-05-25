@@ -1,7 +1,0 @@
-{
-    "python.envFile": "${workspaceFolder}/.env.dev",
-    "python.testing.pytestEnabled": true,
-    "python.testing.unittestEnabled": false,
-
-}
-  
