@@ -28,6 +28,7 @@ public class CourtCase {
     @CreationTimestamp
     private Long createdAt;
 
+    @Column(columnDefinition = "TEXT")
     private String caseDetails;
 
     private String claimant;

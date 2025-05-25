@@ -39,9 +39,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                 Pattern pattern = Pattern.compile("/claimant: *(.+)", Pattern.CASE_INSENSITIVE);
                 Matcher matcher = pattern.matcher(messageText);
                 if (matcher.find()) {
-                    String claimaint = matcher.group(1);
-                    sendMessage(chatId, "Claimant (" + claimaint + ") added to alert subs");
-                    subs.addOrUpdateClaimant(Long.parseLong(chatId), claimaint);
+                    String claimant = matcher.group(1);
+                    sendMessage(chatId, "Claimant (" + claimant + ") added to alert subs");
+                    subs.addOrUpdateClaimant(Long.parseLong(chatId), claimant);
                 }
 
             } else if (messageText.startsWith("/defendant:")) {

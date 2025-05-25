@@ -28,10 +28,10 @@ public class NotifierJob {
     public void init() {
         System.out.println("NotifierJob initialized");
     }
-
-    //    @Scheduled(cron =  "0 30 7 * * *")
+        //  run at 730 every morning
+        @Scheduled(cron =  "0 30 7 * * *")
 //    @Scheduled(cron =  "0 * * * * *")
-    @Scheduled(fixedRate = 50000) // every 10 seconds
+//    @Scheduled(fixedRate = 50000) // every 10 seconds
     public void run(){
         System.out.println("Scheduler running");
         // iterating thru all subscriptions
@@ -43,7 +43,7 @@ public class NotifierJob {
             // TODO need to create methods for finding cases created after a certain date and feed this in here
             for (String claimaint : s.getAlertTermsClaimant()){
                 System.out.println("Alert Terms for Claimaint");
-                System.out.println("claimaint" + claimaint);
+                System.out.println(claimaint);
                 System.out.println("last notified" + s.getLastNotifiedTimestamp());
                 claimantHits.addAll(cases.findByClaimantContainingIgnoreCaseAndCreatedAtAfter(claimaint, s.getLastNotifiedTimestamp()));
             }for (String defendant : s.getAlertTermsDefendant()){
