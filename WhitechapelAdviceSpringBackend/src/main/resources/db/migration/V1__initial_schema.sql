@@ -25,8 +25,8 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.court (
-    id uuid NOT NULL,
-    region_id uuid NOT NULL,
+    id bigint NOT NULL,
+    region_id bigint NOT NULL,
     city character varying(255),
     name character varying(255)
 );
@@ -38,7 +38,7 @@ CREATE TABLE public.court (
 
 CREATE TABLE public.court_case (
     start_time_epoch bigint NOT NULL,
-    court_id uuid NOT NULL,
+    court_id bigint NOT NULL,
     id uuid NOT NULL,
     case_id character varying(255),
     claimant character varying(255),
@@ -53,29 +53,11 @@ CREATE TABLE public.court_case (
 
 
 --
--- Name: flyway_schema_history; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.flyway_schema_history (
-    installed_rank integer NOT NULL,
-    version character varying(50),
-    description character varying(200) NOT NULL,
-    type character varying(20) NOT NULL,
-    script character varying(1000) NOT NULL,
-    checksum integer,
-    installed_by character varying(100) NOT NULL,
-    installed_on timestamp without time zone DEFAULT now() NOT NULL,
-    execution_time integer NOT NULL,
-    success boolean NOT NULL
-);
-
-
---
 -- Name: region; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.region (
-    id uuid NOT NULL,
+    id bigint NOT NULL,
     region_name character varying(255)
 );
 
@@ -122,14 +104,6 @@ ALTER TABLE ONLY public.court
 
 
 --
--- Name: flyway_schema_history flyway_schema_history_pk; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.flyway_schema_history
-    ADD CONSTRAINT flyway_schema_history_pk PRIMARY KEY (installed_rank);
-
-
---
 -- Name: region region_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -145,11 +119,6 @@ ALTER TABLE ONLY public.subscription
     ADD CONSTRAINT subscription_pkey PRIMARY KEY (id);
 
 
---
--- Name: flyway_schema_history_s_idx; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX flyway_schema_history_s_idx ON public.flyway_schema_history USING btree (success);
 
 
 --
