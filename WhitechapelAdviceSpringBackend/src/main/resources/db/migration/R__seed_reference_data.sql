@@ -7,7 +7,8 @@ VALUES
 (4, 'Wales'),
 (5, 'Greater London'),
 (6, 'South West'),
-(7, 'South East');
+(7, 'South East')
+ON CONFLICT (id) DO NOTHING;
 
 -- insert court data
 INSERT INTO court (id, city, region_id) VALUES
@@ -146,4 +147,5 @@ INSERT INTO court (id, city, region_id) VALUES
 (133, 'Worthing', 7),
 (134, 'Wrexham', 4),
 (135, 'Yeovil', 6),
-(136, 'York', 2);
+(136, 'York', 2)
+ON CONFLICT (id) DO NOTHING;
