@@ -37,13 +37,13 @@ CREATE TABLE public.court (
 --
 
 CREATE TABLE public.court_case (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
     start_time_epoch bigint NOT NULL,
     court_id bigint NOT NULL,
-    id uuid NOT NULL,
     case_id character varying(255),
     claimant character varying(255),
     defendant character varying(255),
-    duration character varying(255),
+    duration bigint,
     hearing_channel character varying(255),
     hearing_type character varying(255),
     case_details text,
@@ -86,13 +86,6 @@ CREATE SEQUENCE public.subscription_seq
     NO MAXVALUE
     CACHE 1;
 
-
---
--- Name: court_case court_case_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.court_case
-    ADD CONSTRAINT court_case_pkey PRIMARY KEY (id);
 
 
 --
