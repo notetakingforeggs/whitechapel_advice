@@ -1,5 +1,3 @@
-
-# JDK runtime
 FROM eclipse-temurin:21-alpine AS runtime
 
 # metadate

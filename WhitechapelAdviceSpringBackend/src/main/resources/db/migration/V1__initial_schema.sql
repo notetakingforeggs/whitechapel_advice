@@ -48,7 +48,8 @@ CREATE TABLE public.court_case (
     hearing_type character varying(255),
     case_details text,
     created_at bigint,
-    is_minor boolean
+    is_minor boolean,
+    UNIQUE (court_id, case_id, start_time_epoch)
 );
 
 
@@ -110,8 +111,6 @@ ALTER TABLE ONLY public.region
 
 ALTER TABLE ONLY public.subscription
     ADD CONSTRAINT subscription_pkey PRIMARY KEY (id);
-
-
 
 
 --
